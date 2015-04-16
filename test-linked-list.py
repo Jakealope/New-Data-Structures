@@ -1,3 +1,4 @@
+from linked_list.py import Node, LinkedList
 import pytest
 
 # This will be the tests for a linked list
