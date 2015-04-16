@@ -40,7 +40,7 @@ class LinkedList(object):
     def search(self, val):
         # return node containing 'val' in list, if present (else None)
         current = self.first
-        while current.data != val:
+        while current.val != val:
             if current._next is None:
                 return None
             else:
