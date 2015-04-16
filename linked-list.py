@@ -2,8 +2,8 @@
 
 
 class Node(object):
-    def __init__(self, data, next_node=None):
-        self.data = data
+    def __init__(self, val, next_node=None):
+        self.val = val
         self.next_node = next_node
 
 
@@ -18,3 +18,9 @@ class LinkedList(object):
         else:
             new.next_node = self.first
             self.first = new
+
+    def pop(self):
+        # pops first item from list and returns it
+        chopped = self.firstNode
+        self.firstNode = self.firstNode.nextNode
+        return chopped.val
