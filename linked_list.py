@@ -62,8 +62,10 @@ class LinkedList(object):
                     raise ValueError()
                 else:
                     previous = current
-                    current = current.next
+                    current = current._next
             if previous is None:
-                self.first = current.next
+                self.first = current._next
             else:
-                previous.next = current.next
+                previous._next = current._next
+
+
