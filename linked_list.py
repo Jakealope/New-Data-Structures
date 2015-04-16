@@ -21,9 +21,12 @@ class LinkedList(object):
 
     def pop(self):
         # pops first item from list and returns it
-        chopped = self.first
-        self.first = self.first._next
-        return chopped.val
+        if self.size() == 0:
+            return "THE LIST! IT'S EMPTY!!"
+        else:
+            chopped = self.first
+            self.first = self.first._next
+            return chopped.val
 
     def size(self):
         # returns length of list
