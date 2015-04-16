@@ -36,3 +36,13 @@ class LinkedList(object):
             size += 1
             current = current._next
         return size
+
+    def search(self, val):
+        # return node containing 'val' in list, if present (else None)
+        current = self.first
+        while current.data != val:
+            if current._next is None:
+                return None
+            else:
+                current = current._next
+        return current
