@@ -76,3 +76,33 @@ def test_search_success():
     new.insert(bob)
     new.insert(joe)
     assert new.search("Bob") == bob
+
+
+def test_remove():
+    joe = Node("Joe")
+    bob = Node("Bob")
+    new = LinkedList()
+    new.insert(bob)
+    new.insert(joe)
+    new.remove(bob)
+    assert new.search("Bob") is None
+
+
+def test_remove_empty():
+    new = LinkedList()
+    assert new.remove("Bob") == "THE LIST! IT'S EMPTY!!"
+
+
+def test_pop_empty():
+    new = LinkedList()
+    assert new.pop() == "THE LIST! IT'S EMPTY!!"
+
+
+def test_remove_fail():
+    joe = Node("Joe")
+    bob = Node("Bob")
+    new = LinkedList()
+    new.insert(bob)
+    new.insert(joe)
+    with pytest.raises(ValueError):
+        new.remove("Fred")
