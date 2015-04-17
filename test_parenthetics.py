@@ -1,15 +1,15 @@
-from parenthetics import isBalanced
+from parenthetics import is_balanced
 import pytest
 # These are unit tests for the parenthetics.py file
 
 
 def test_isone():
-    assert isBalanced("(") == 1
+    assert is_balanced("(") == 1
 
 
 def test_isneg():
-    assert isBalanced(")") == -1
+    assert is_balanced(")") == -1
 
 
 def test_iszero():
-    assert isBalanced("( )") == 0
+    assert is_balanced("( )") == 0
