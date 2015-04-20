@@ -54,3 +54,34 @@ def test_shift_empty():
     linked = DLinked()
     with pytest.raises(ValueError):
         linked.shift()
+
+
+def test_remove_empty():
+    linked = DLinked()
+    with pytest.raises(AttributeError):
+        linked.remove("Bob")
+
+
+def test_remove_one():
+    linked = DLinked()
+    linked.insert("Bob")
+    linked.remove("Bob")
+    with pytest.raises(AttributeError):
+        linked.remove("Bob")
+
+
+def test_remove_wrong():
+    linked = DLinked()
+    linked.insert("Fred")
+    linked.insert("Bob")
+    linked.insert("Joe")
+    with pytest.raises(ValueError):
+        linked.remove("Sue")
+
+
+def test_multi():
+    linked = DLinked()
+    linked.insert("Fred")
+    linked.insert("Bob")
+    linked.insert("Joe")
+    assert linked.first.val == "Joe"
