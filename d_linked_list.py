@@ -15,8 +15,16 @@ class DLinked(object):
 
     def insert(self, val):
         # adds val to beginning of list
-        new_item = ListItem(val, next=self.first)
+        new = ListItem(val, next=self.first)
         if self.first is None:
-            self.first = self.last = new_item
+            self.first = self.last = new
         else:
-            self.first = self.first.previous = new_item
+            self.first = self.first.previous = new
+
+    def append(self, val):
+        # adds val to end of list
+        new = ListItem(val, previous=self.last)
+        if not self.last:
+            self.first = self.last = new
+        else:
+            self.last = self.last.next = new
