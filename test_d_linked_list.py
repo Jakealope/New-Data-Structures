@@ -30,3 +30,15 @@ def test_append_multi():
     linked.append("Bob")
     linked.append("Joe")
     assert linked.last.val == "Joe"
+
+
+def test_pop_one():
+    linked = DLinked()
+    linked.insert("Bob")
+    assert linked.pop() == "Bob"
+
+
+def test_pop_empty():
+    linked = DLinked()
+    with pytest.raises(ValueError):
+        linked.pop()
