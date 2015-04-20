@@ -52,3 +52,20 @@ class DLinked(object):
             obsolete.prev.next = None
             self.last = self.last.previous
         return obsolete.val
+
+    def remove(self, val):
+        # remove value from list, wherever it might be
+        if self.first is None:
+            raise AttributeError("The list is empty")
+        else:
+            current = self.first
+            while current.val != val:
+                if current.next is None:
+                    raise ValueError("Value not found in list")
+                else:
+                    current = current.next
+            if current.previous is None:
+                self.first = self.first.next
+            else:
+                current.prev.next = current.next
+                current.next.previous = current.previous
