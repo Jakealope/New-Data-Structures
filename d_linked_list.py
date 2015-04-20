@@ -28,3 +28,15 @@ class DLinked(object):
             self.first = self.last = new
         else:
             self.last = self.last.next = new
+
+    def pop(self):
+        # pops first value from list and returns it
+        obsolete = self.first
+        if self.first is None:
+            raise ValueError("No items in list!")
+        elif self.last is obsolete:
+            self.first = self.last = None
+        else:
+            obsolete.next.previous = None
+            self.first = self.first.next
+        return obsolete.val
