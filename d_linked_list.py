@@ -40,3 +40,15 @@ class DLinked(object):
             obsolete.next.previous = None
             self.first = self.first.next
         return obsolete.val
+
+    def shift(self):
+        # pops last value from list and returns it
+        obsolete = self.last
+        if self.last is None:
+            raise ValueError("No items in list!")
+        elif self.first is obsolete:
+            self.first = self.last = None
+        else:
+            obsolete.prev.next = None
+            self.last = self.last.previous
+        return obsolete.val
