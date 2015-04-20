@@ -42,3 +42,15 @@ def test_pop_empty():
     linked = DLinked()
     with pytest.raises(ValueError):
         linked.pop()
+
+
+def test_shift_one():
+    linked = DLinked()
+    linked.insert("Bob")
+    assert linked.shift() == "Bob"
+
+
+def test_shift_empty():
+    linked = DLinked()
+    with pytest.raises(ValueError):
+        linked.shift()
