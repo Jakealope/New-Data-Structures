@@ -1,5 +1,6 @@
-from bin_heap import BinaryHeap
+from binaryHeap import BinaryHeap
 import pytest
+import random
 
 
 def test_is_empty():
@@ -28,3 +29,17 @@ def test_reverse_range():
     for i in range(5, 0, -1):
         heap.push(i)
     assert all_items(heap) == range(1, 6)
+
+
+def test_load_up_the_list():
+    heap = BinaryHeap()
+    for i in range(10000, 0, -1):
+        heap.push(i)
+    assert all_items(heap) == range(1, 10001)
+
+
+def test_random_input():
+    h = BinaryHeap()
+    for i in random.sample(range(100), 100):
+        h.push(i)
+    assert all_items(h) == range(0, 100)
