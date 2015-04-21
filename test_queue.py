@@ -34,3 +34,20 @@ def test_dequeue_multi():
     queue.enqueue("Beer")
     assert queue.dequeue() == "Bacon"
     assert queue.first.val == "Beer"
+
+
+def test_size():
+    queue = Queue()
+    queue.enqueue("Bacon")
+    queue.enqueue("Beer")
+    assert queue.size() == 2
+
+
+def test_size_with_remove():
+    queue = Queue()
+    queue.enqueue("Bacon")
+    queue.enqueue("Beer")
+    queue.enqueue("Cow")
+    queue.enqueue("Whiskey")
+    queue.dequeue()
+    assert queue.size() == 3
