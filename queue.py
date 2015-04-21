@@ -20,3 +20,15 @@ class Queue(object):
         else:
             self.last.prev = new
             self.last = new
+
+    def dequeue(self):
+        # pops last value from list and returns it
+        obsolete = self.first
+        if self.first is None:
+            raise ValueError("No items in queue.")
+        elif self.last is obsolete:
+            self.first = self.last = None
+        else:
+            obsolete.prev.next = None
+            self.first = self.first.prev
+        return obsolete.val
