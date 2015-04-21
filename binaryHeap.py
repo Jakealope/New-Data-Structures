@@ -44,3 +44,11 @@ class BinaryHeap(object):
                 return val * 2
             else:
                 return val * 2 + 1
+
+    def buildheap(self, alist):
+        x = len(alist) // 2
+        self.currentsize = len(alist)
+        self.heaplist = [0] + alist[:]
+        while (x > 0):
+            self.settle_down(x)
+            x = x - 1
