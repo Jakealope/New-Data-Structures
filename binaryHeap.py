@@ -18,3 +18,11 @@ class BinaryHeap(object):
         self.heaplist.pop()
         self.settle_down(1)
         return return_val
+
+    def bubble_up(self, val):
+        while val // 2 > 0:
+            if self.heaplist[val] < self.heaplist[val // 2]:
+                swappee = self.heaplist[val // 2]
+                self.heaplist[val // 2] = self.heaplist[val]
+                self.heaplist[val] = swappee
+            val = val // 2
