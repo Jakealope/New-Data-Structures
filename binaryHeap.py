@@ -26,3 +26,12 @@ class BinaryHeap(object):
                 self.heaplist[val // 2] = self.heaplist[val]
                 self.heaplist[val] = swappee
             val = val // 2
+
+    def settle_down(self, val):
+        while (val * 2) <= self.currentsize:
+            sc = self.youngest(val)
+            if self.heaplist[val] > self.heaplist[sc]:
+                swappee = self.heaplist[val]
+                self.heaplist[val] = self.heaplist[sc]
+                self.heaplist[sc] = swappee
+            val = sc
