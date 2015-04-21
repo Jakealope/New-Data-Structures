@@ -32,3 +32,12 @@ class Queue(object):
             obsolete.prev.next = None
             self.first = self.first.prev
         return obsolete.val
+
+    def size(self):
+        # returns size of the queue, returns 0 if empty
+        size = 0
+        current = self.last
+        while current is not None:
+            size += 1
+            current = current.next
+        return size
