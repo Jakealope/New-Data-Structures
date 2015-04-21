@@ -1,10 +1,10 @@
-import bin_heap as bh
+import heapq as hq
 
 
 class Priority(object):
     """docstring for priority"""
     def __init__(self):
-        self.bin_heap = bh()
+        self.heapq = hq()
 
     def insert(self, item, rank):
-        bh.push(item, rank)
+        hq.push(item, rank)
