@@ -77,3 +77,14 @@ def test_edge_error():
     g.add_edge('a', 'b')
     with pytest.raises(KeyError):
         g.del_edge('a', 'z')
+
+
+def test_has_node():
+    """edge added, new node added"""
+    g = SimpleGraph()
+    g.add_node('a')
+    g.add_node('b')
+    g.add_node('c')
+    g.add_edge('a', 'c')
+    g.add_edge('a', 'b')
+    assert g.has_node('b')
