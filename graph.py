@@ -1,12 +1,14 @@
-# a simple graph that will allow us to impliment a graph data structure
-
 import heapq
 
 
 class SimpleGraph(object):
-
+    '''This is a simple graph program that will allow us
+                to impliment a graph data structure'''
     def __init__(self, edges=None):
         self.dict_graph = {}
+        if edges is not None:
+            for source, target, cost in edges:
+                self.connect(source, target, cost)
 
     def nodes(self):
         '''return a iterator through of all nodes in the graph'''
@@ -126,3 +128,8 @@ class SimpleGraph(object):
                     heapq.heappush(binheap, (new_cost, child_node))
 
         return costs
+
+
+if __name__ == '__main__':
+    graph = SimpleGraph([('a', 'b', 6), ('b', 'a', 5), ('b', 'c', 1), ('c', 'd', 1)])
+    print graph.dijkstra('a')
