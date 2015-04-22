@@ -79,3 +79,16 @@ class SimpleGraph(object):
     def connected(self, n1):
         '''Return an iterator through the nodes connected to source.'''
         return self.dict_graph[n1].iterkeys()
+
+    def breadth_first_traversal(self, start):
+        visited = set()
+        queue = [start]
+        return_value = []
+        while queue:
+            node = queue.pop(0)
+            if node not in visited:
+                visited.add(node)
+                return_value.append(node)
+                queue.extend(self.dict_graph[node])
+        return return_value
+
