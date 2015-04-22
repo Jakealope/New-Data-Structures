@@ -66,3 +66,14 @@ def test_add_edge():
     assert g.has_node('q')
     assert g.neighbors('q') == {'a': 0}
 
+
+def test_edge_error():
+    """delete non-existant edge"""
+    g = SimpleGraph()
+    g.add_node('a')
+    g.add_node('b')
+    g.add_node('c')
+    g.add_edge('a', 'c')
+    g.add_edge('a', 'b')
+    with pytest.raises(KeyError):
+        g.del_edge('a', 'z')
