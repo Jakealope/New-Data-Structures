@@ -67,3 +67,11 @@ class SimpleGraph(object):
             return True
         else:
             return False
+
+    def connect(self, n1, n2, cost=1):
+        '''Connect n1 to target with the provided cost.'''
+        if n1 not in self.dict_graph:
+            self.dict_graph[n1] = {}
+        if n2 not in self.dict_graph:
+            self.dict_graph[n2] = {}
+        self.dict_graph[n1][n2] = cost
