@@ -88,3 +88,17 @@ def test_has_node():
     g.add_edge('a', 'c')
     g.add_edge('a', 'b')
     assert g.has_node('b')
+
+
+def test_adjacent():
+    """adjacent correctly identify edges, new edge add node"""
+    g = SimpleGraph()
+    g.add_node('a')
+    g.add_node('b')
+    g.add_node('c')
+    g.add_edge('a', 'd')
+    g.add_edge('a', 'f')
+    assert 'f' in g.nodes()
+    assert g.adjacent('a', 'd')
+    assert not g.adjacent('a', 'b')
+
