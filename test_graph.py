@@ -113,3 +113,15 @@ def test_adjacent_error():
     g.add_edge('a', 'b')
     with pytest.raises(KeyError):
         g.adjacent('l', 'm')
+
+
+def test_edges():
+    """edges prints correct edges as tuples"""
+    g = SimpleGraph()
+    g.add_node('a')
+    g.add_node('b')
+    g.add_node('c')
+    g.add_edge('a', 'c')
+    g.add_edge('a', 'b')
+    assert ('a', 'c') in g.edges()
+    assert ('a', 'b') in g.edges()
