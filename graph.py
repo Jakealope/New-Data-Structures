@@ -75,3 +75,7 @@ class SimpleGraph(object):
         if n2 not in self.dict_graph:
             self.dict_graph[n2] = {}
         self.dict_graph[n1][n2] = cost
+
+    def connected(self, n1):
+        '''Return an iterator through the nodes connected to source.'''
+        return self.dict_graph[n1].iterkeys()
