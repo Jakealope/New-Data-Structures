@@ -37,3 +37,11 @@ class SimpleGraph(object):
     def cost(self, n1, n2):
         '''Return the cost to go from source to target directly.'''
         return self.dict_graph[n1][n2]
+
+    def del_node(self, n):
+        '''deletes the node 'n' from the graph,
+        raises an error if no such node exists'''
+        del self.dict_graph[n]
+        for key, value in self.dict_graph.items():
+            if n in value:
+                del value[n]
