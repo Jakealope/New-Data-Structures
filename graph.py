@@ -54,3 +54,8 @@ class SimpleGraph(object):
     def has_node(self, n):
         '''True if node 'n' is contained in the graph, False if not.'''
         return n in self.dict_graph
+
+    def neighbors(self, n):
+        '''returns the list of all nodes connected to 'n' by edges,
+        raises an error if n is not in graph'''
+        return self.dict_graph[n]
