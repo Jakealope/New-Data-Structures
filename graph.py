@@ -105,3 +105,24 @@ class SimpleGraph(object):
         return_value = []
         self._depth_first_visitor(start, set(), return_value)
         return return_value
+
+    def dijkstra(self, n1):
+        '''Using a binary heap to traverse the graph'''
+        binheap = [(0, n1)]
+
+        '''using a dict comprehension to go through the nodes.
+           assuming that an unvisited node is an infinitive
+           value untill I can prove otherwise'''
+        costs = {node: float('inf') for node in self.nodes()}
+        costs[n1] = 0
+
+        while binheap:
+            cost, node = heapq.heappop(binheap)
+
+            for child_node in self.connected(node):
+                new_cost = costs[node] + self.cost(node, child_node)
+                if costs[child_node] > new_cost:
+                    costs[child_node] = new_cost
+                    heapq.heappush(binheap, (new_cost, child_node))
+
+        return costs
