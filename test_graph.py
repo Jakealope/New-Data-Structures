@@ -52,3 +52,17 @@ def test_del_edge():
     g.add_edge('a', 'b')
     g.del_edge('a', 'c')
     assert g.neighbors('a') == {'b': 0}
+
+
+def test_add_edge():
+    """edge added, new node added"""
+    g = SimpleGraph()
+    g.add_node('a')
+    g.add_node('b')
+    g.add_node('c')
+    g.add_edge('a', 'c')
+    g.add_edge('a', 'b')
+    g.add_edge('q', 'a')
+    assert g.has_node('q')
+    assert g.neighbors('q') == {'a': 0}
+
