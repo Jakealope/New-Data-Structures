@@ -191,3 +191,11 @@ def test_fully_connected():
 def test_fully_connected_again():
     g = fully_connected_graph(['a', 'b', 'c', 'd'])
     assert g.depth_first_traversal('a') == ['a', 'c', 'b', 'd']
+
+
+def test_weighted_edges():
+    g = SimpleGraph()
+    g.add_edge('a', 'b', 5)
+    g.add_edge('a', 'c', 2)
+    g.add_edge('b', 'c', 1)
+    assert g.dict_graph['a'] == {'b': 5, 'c': 2}
