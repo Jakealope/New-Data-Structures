@@ -171,3 +171,23 @@ def test_one_loop_depth():
     g = SimpleGraph()
     g.add_edge('a', 'a')
     assert g.depth_first_traversal('a') == ['a']
+
+
+def fully_connected_graph(nodes):
+    g = SimpleGraph()
+    for node in nodes:
+        g.add_node(node)
+        for other_node in nodes:
+            if other_node is not node:
+                g.add_edge(node, other_node)
+    return g
+
+
+def test_fully_connected():
+    g = fully_connected_graph(['a', 'b', 'c', 'd'])
+    assert g.breadth_first_traversal('a') == ['a', 'c', 'b', 'd']
+
+
+def test_fully_connected_again():
+    g = fully_connected_graph(['a', 'b', 'c', 'd'])
+    assert g.depth_first_traversal('a') == ['a', 'c', 'b', 'd']
