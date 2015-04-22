@@ -147,3 +147,27 @@ def test_depth():
     g.add_edge('e', 'f')
     g.add_edge('f', 'g')
     assert g.depth_first_traversal('a') == ['a', 'c', 'b', 'e', 'f', 'g', 'd']
+
+
+def test_one_breadth():
+    g = SimpleGraph()
+    g.add_node('a')
+    assert g.breadth_first_traversal('a') == ['a']
+
+
+def test_one_depth():
+    g = SimpleGraph()
+    g.add_node('a')
+    assert g.depth_first_traversal('a') == ['a']
+
+
+def test_one_loop_breadth():
+    g = SimpleGraph()
+    g.add_edge('a', 'a')
+    assert g.breadth_first_traversal('a') == ['a']
+
+
+def test_one_loop_depth():
+    g = SimpleGraph()
+    g.add_edge('a', 'a')
+    assert g.depth_first_traversal('a') == ['a']
