@@ -59,3 +59,11 @@ class SimpleGraph(object):
         '''returns the list of all nodes connected to 'n' by edges,
         raises an error if n is not in graph'''
         return self.dict_graph[n]
+
+    def adjacent(self, n1, n2):
+        '''returns True if there is an edge connecting n1 and n2, False if not,
+        raises an error if either of the supplied nodes are not in g'''
+        if n2 in self.dict_graph[n1]:
+            return True
+        else:
+            return False
