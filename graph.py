@@ -92,3 +92,16 @@ class SimpleGraph(object):
                 queue.extend(self.dict_graph[node])
         return return_value
 
+    def _depth_first_visitor(self, node, visited, return_value):
+        if node in visited:
+            return
+
+        visited.add(node)
+        return_value.append(node)
+        for child_node in self.dict_graph[node]:
+            self._depth_first_visitor(child_node, visited, return_value)
+
+    def depth_first_traversal(self, start, visited=None):
+        return_value = []
+        self._depth_first_visitor(start, set(), return_value)
+        return return_value
