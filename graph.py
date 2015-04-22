@@ -23,3 +23,13 @@ class SimpleGraph(object):
     def add_node(self, n):
         '''adds a new node 'n' to the graph'''
         self.dict_graph.setdefault(n, {})
+
+    def add_edge(self, n1, n2, weight=0):
+        '''adds a new edge to the graph connecting 'n1' and 'n2',
+        if either n1 or n2 are not already present in the graph,
+        they should be added.'''
+        self.dict_graph.setdefault(n2, {})
+        if n1 in self.dict_graph:
+            self.dict_graph[n1][n2] = weight
+        else:
+            self.dict_graph[n1] = {n2: weight}
