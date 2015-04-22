@@ -136,3 +136,14 @@ def test_breadth():
     g.add_edge('e', 'f')
     g.add_edge('f', 'g')
     assert g.breadth_first_traversal('a') == ['a', 'c', 'b', 'e', 'd', 'f', 'g']
+
+
+def test_depth():
+    g = SimpleGraph()
+    g.add_edge('a', 'b')
+    g.add_edge('a', 'c')
+    g.add_edge('b', 'd')
+    g.add_edge('b', 'e')
+    g.add_edge('e', 'f')
+    g.add_edge('f', 'g')
+    assert g.depth_first_traversal('a') == ['a', 'c', 'b', 'e', 'f', 'g', 'd']
