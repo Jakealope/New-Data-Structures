@@ -102,3 +102,14 @@ def test_adjacent():
     assert g.adjacent('a', 'd')
     assert not g.adjacent('a', 'b')
 
+
+def test_adjacent_error():
+    """error raised when nodes non-existant"""
+    g = SimpleGraph()
+    g.add_node('a')
+    g.add_node('b')
+    g.add_node('c')
+    g.add_edge('a', 'c')
+    g.add_edge('a', 'b')
+    with pytest.raises(KeyError):
+        g.adjacent('l', 'm')
