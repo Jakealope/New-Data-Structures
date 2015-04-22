@@ -199,3 +199,20 @@ def test_weighted_edges():
     g.add_edge('a', 'c', 2)
     g.add_edge('b', 'c', 1)
     assert g.dict_graph['a'] == {'b': 5, 'c': 2}
+
+
+def test_weighted_edges_with_edge_delete():
+    g = SimpleGraph()
+    g.add_edge('a', 'b', 5)
+    g.add_edge('a', 'c', 2)
+    g.del_edge('a', 'c')
+    assert g.dict_graph['a'] == {'b': 5}
+
+
+def test_weighted_edges_with_node_delete():
+    g = SimpleGraph()
+    g.add_edge('a', 'b', 5)
+    g.add_edge('a', 'c', 2)
+    g.del_node('c')
+    assert g.dict_graph['a'] == {'b': 5}
+
