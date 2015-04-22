@@ -50,3 +50,7 @@ class SimpleGraph(object):
         '''deletes the edge connecting 'n1' and 'n2' from the graph,
         raises an error if no such edge exists'''
         del self.dict_graph[n1][n2]
+
+    def has_node(self, n):
+        '''True if node 'n' is contained in the graph, False if not.'''
+        return n in self.dict_graph
