@@ -216,3 +216,8 @@ def test_weighted_edges_with_node_delete():
     g.del_node('c')
     assert g.dict_graph['a'] == {'b': 5}
 
+
+def test_dijkstra():
+    graph = SimpleGraph([('a', 'b', 6), ('b', 'a', 5),
+                         ('a', 'g', 1), ('g', 'b', 1)])
+    assert graph.dijkstra('a') == {'a': 0, 'b': 2, 'g': 1}
