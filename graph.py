@@ -19,3 +19,7 @@ class SimpleGraph(object):
             for item in value:
                 edges.append((key, item))
         return edges
+
+    def add_node(self, n):
+        '''adds a new node 'n' to the graph'''
+        self.dict_graph.setdefault(n, {})
