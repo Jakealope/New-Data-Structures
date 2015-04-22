@@ -40,3 +40,15 @@ def test_del_error():
     g.add_edge('a', 'b')
     with pytest.raises(KeyError):
         g.del_node('p')
+
+
+def test_del_edge():
+    """other edges preserved when one deleted"""
+    g = SimpleGraph()
+    g.add_node('a')
+    g.add_node('b')
+    g.add_node('c')
+    g.add_edge('a', 'c')
+    g.add_edge('a', 'b')
+    g.del_edge('a', 'c')
+    assert g.neighbors('a') == {'b': 0}
