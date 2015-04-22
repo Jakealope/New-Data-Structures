@@ -33,3 +33,7 @@ class SimpleGraph(object):
             self.dict_graph[n1][n2] = weight
         else:
             self.dict_graph[n1] = {n2: weight}
+
+    def cost(self, n1, n2):
+        '''Return the cost to go from source to target directly.'''
+        return self.dict_graph[n1][n2]
