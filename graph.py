@@ -45,3 +45,8 @@ class SimpleGraph(object):
         for key, value in self.dict_graph.items():
             if n in value:
                 del value[n]
+
+    def del_edge(self, n1, n2):
+        '''deletes the edge connecting 'n1' and 'n2' from the graph,
+        raises an error if no such edge exists'''
+        del self.dict_graph[n1][n2]
